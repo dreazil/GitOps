@@ -39,8 +39,8 @@ jobs:
           -backend-config="username=$ZTL_USERNAME"
           -backend-config="password=$ZTL_API_TOKEN"
         env:
-          ZTL_USERNAME: ${{ vars.ZTL_USERNAME }}
-          ZTL_API_TOKEN: ${{ secrets.ZTL_API_TOKEN }}
+          ZTL_USERNAME: ${{ vars.ZTL_USERNAME }}
+          ZTL_API_TOKEN: ${{ secrets.ZTL_API_TOKEN }}
 
       # Checks that all Terraform configuration files adhere to a canonical format
       # Will fail the build if not
@@ -65,7 +65,7 @@ jobs:
           fi
         env:
           TF_VAR_fqdn: ${{ vars.ZTL_FQDN }}
-          TF_VAR_api_token: ${{ secrets.ZTL_API_TOKEN }}
+          TF_VAR_api_token: ${{ secrets.ZTL_API_TOKEN }}
 
       # Save plan to artifacts
       - name: Publish Terraform Plan
@@ -130,7 +130,7 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.9.1
+          terraform_version: "1.9.1"
 
       # Initialize a new or existing Terraform working directory by creating initial files,
       # loading any remote state, downloading modules, etc.
@@ -140,8 +140,8 @@ jobs:
           -backend-config="username=$ZTL_USERNAME"
           -backend-config="password=$ZTL_API_TOKEN"
         env:
-          ZTL_USERNAME: ${{ vars.ZTL_USERNAME }}
-          ZTL_API_TOKEN: ${{ secrets.ZTL_API_TOKEN }}
+          ZTL_USERNAME: ${{ vars.ZTL_USERNAME }}
+          ZTL_API_TOKEN: ${{ secrets.ZTL_API_TOKEN }}
 
       # Download saved plan from artifacts
       - name: Download Terraform Plan
