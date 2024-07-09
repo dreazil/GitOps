@@ -3424,9 +3424,9 @@ EOSRC
 resource "zentral_munki_script_check" "mcs-systemsettings-system_settings_screensaver_timeout_enforce" {
   name = "[mSCP] - System Settings - Enforce Screen Saver Timeout"
   description = trimspace(<<EODESC
-The screen saver timeout _MUST_ be set to 1234 seconds or a shorter length of time.
+The screen saver timeout _MUST_ be set to 1200 seconds or a shorter length of time.
 
-This rule ensures that a full session lock is triggered within no more than 1234 seconds of inactivity.
+This rule ensures that a full session lock is triggered within no more than 1200 seconds of inactivity.
 EODESC
   )
   type = "ZSH_STR"
@@ -3435,7 +3435,7 @@ EODESC
 function run() {
   let timeout = ObjC.unwrap($.NSUserDefaults.alloc.initWithSuiteName('com.apple.screensaver')\
 .objectForKey('idleTime'))
-  if ( timeout <= 1234 ) {
+  if ( timeout <= 1200 ) {
     return("true")
   } else {
     return("false")
