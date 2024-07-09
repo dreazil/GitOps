@@ -3,7 +3,7 @@
 resource "zentral_mdm_artifact" "monolith-default-enrollment" {
   name      = "Monolith - Default enrollment"
   type      = "Profile"
-  channel   = "Device"
+  channel   = "Devce"
   platforms = ["macOS"]
 }
 
